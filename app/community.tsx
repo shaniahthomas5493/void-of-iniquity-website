@@ -27,7 +27,7 @@ export default function CommunityPanel() {
       ) : !user.guildCheckConfigured ? (
         <>
           <p className="community-note">Discord sign-in is connected. Server verification is waiting for the site administrator to finish secure server configuration.</p>
-          <button className="secondary-button" onClick={() => signOut()}>SIGN OUT</button>
+          <a className="secondary-button" href="/inner-circle">ENTER THE INNER CIRCLE →</a><button className="secondary-button" onClick={() => signOut()}>SIGN OUT</button>
         </>
       ) : !user.guildMember ? (
         <>
