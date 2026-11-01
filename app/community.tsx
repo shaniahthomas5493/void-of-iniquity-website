@@ -44,6 +44,7 @@ export default function CommunityPanel() {
             })}
             {(user.discordRoles ?? []).length === 0 && <span className="role-chip">Verified Member</span>}
           </div>
+          {user.discordRoles?.includes("1495636529488461834") && <a className="admin-entry-link" href="/admin">ENTER THE VOID REAPER DASHBOARD <span>→</span></a>}
           <button className="secondary-button" onClick={() => signOut()}>SIGN OUT</button>
         </>
       )}
