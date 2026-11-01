@@ -37,11 +37,19 @@ export default function Home() {
 
       <section className="features" aria-label="Community features">
         {features.map((feature) => (
-          <article className="feature" key={feature.number}>
-            <span className="feature-number">{feature.number}</span>
-            <div><h3>{feature.title}</h3><p>{feature.text}</p></div>
-            <span className="feature-arrow">↗</span>
-          </article>
+          {feature.title === "The Inner Circle" ? (
+            <a className="feature feature-link" href="/inner-circle" key={feature.number} aria-label="Enter The Inner Circle">
+              <span className="feature-number">{feature.number}</span>
+              <div><h3>{feature.title}</h3><p>{feature.text}</p></div>
+              <span className="feature-arrow">↗</span>
+            </a>
+          ) : (
+            <article className="feature" key={feature.number}>
+              <span className="feature-number">{feature.number}</span>
+              <div><h3>{feature.title}</h3><p>{feature.text}</p></div>
+              <span className="feature-arrow">↗</span>
+            </article>
+          )}
         ))}
       </section>
 
