@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import CommunityPanel from "./community";
 import ExchangeListings from "./exchange/listings";
 
