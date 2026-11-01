@@ -69,7 +69,7 @@ export default function Home() {
         <ExchangeListings />
         <div className="exchange-footer">
           <p>YOUR CRAFT. YOUR STORY. YOUR PLACE IN THE VOID.</p>
-          <span>Creator submissions will open once member profiles and staff review tools are ready.</span>
+          <span>Approved creator profiles appear in the public showcase. Discord members can submit new work for review.</span>
         </div>
       </section>
 
