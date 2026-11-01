@@ -1,5 +1,6 @@
 import type { NextAuthOptions } from "next-auth";
 import DiscordProvider from "next-auth/providers/discord";
+import { getSupabaseAdmin } from "../../../lib/supabase";
 
 const recognizedRoleIds = [
   "1495636529488461834",
@@ -51,6 +52,22 @@ export const authOptions: NextAuthOptions = {
         } else {
           token.guildMember = false;
           token.discordRoles = [];
+        }
+
+        if (token.guildMember && token.sub) {
+          try {
+            const { error } = await getSupabaseAdmin().from("inner_circle_profiles").upsert({
+              user_id: token.sub,
+              discord_name: typeof token.name === "string" ? token.name : "Void Member",
+              avatar_url: typeof token.picture === "string" ? token.picture : null,
+              discord_roles: Array.isArray(token.discordRoles) ? token.discordRoles : [],
+              last_seen_at: new Date().toISOString(),
+              updated_at: new Date().toISOString()
+            }, { onConflict: "user_id", ignoreDuplicates: false });
+            if (error) console.error("Inner Circle profile sync failed:", error);
+          } catch (error) {
+            console.error("Inner Circle profile sync failed:", error);
+          }
         }
       }
       return token;
