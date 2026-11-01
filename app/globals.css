@@ -53,3 +53,26 @@ footer{padding:25px 7vw;border-top:1px solid var(--line);display:flex;justify-co
 .secondary-button:hover{border-color:var(--bright);color:#fff}
 .role-list{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:25px auto}
 .role-chip{border:1px solid rgba(190,55,60,.4);background:rgba(125,20,27,.15);padding:9px 13px;color:#e7c9c6;font-size:11px;letter-spacing:.6px}
+
+.nav-actions{display:flex;align-items:center;gap:26px}
+.exchange{padding:105px 24px 92px;border-top:1px solid var(--line);background:radial-gradient(ellipse at 50% 35%,rgba(113,18,25,.16),transparent 58%),#0b0808}
+.exchange-heading{text-align:center;max-width:720px;margin:0 auto 48px}
+.exchange-heading h2{font-size:clamp(38px,6vw,68px);font-weight:500;line-height:1.08;margin:18px 0}
+.exchange-intro{max-width:590px;margin:0 auto;color:var(--muted);font-size:14px;line-height:1.9}
+.exchange-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.exchange-card{position:relative;overflow:hidden;padding:24px 25px 30px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(31,15,16,.95),rgba(12,9,9,.98))}
+.exchange-kicker{font-size:9px;letter-spacing:2px;color:#c77a77}
+.exchange-art{height:185px;margin:20px 0 25px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;border:1px solid rgba(190,55,60,.2);font:500 25px/1.35 'Cinzel',serif;letter-spacing:3px;color:#eadbd5}
+.exchange-art:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(155,25,34,.28),transparent 68%)}
+.exchange-art span{position:relative;text-shadow:0 3px 18px #000}
+.exchange-art b{color:#df5558;font-weight:500}
+.book-art{background:linear-gradient(135deg,#1c1011,#090707 70%)}
+.market-art{background:linear-gradient(135deg,#17100e,#0b0808 70%)}
+.exchange-card h3{font-size:22px;font-weight:500;margin:0 0 12px}
+.exchange-card p{color:var(--muted);font-size:12px;line-height:1.85;margin:0 0 17px}
+.exchange-card ul{padding:0 0 0 17px;margin:0;color:#d7c4be;font-size:11px;line-height:2}
+.exchange-card li::marker{color:var(--bright)}
+.exchange-footer{max-width:1000px;margin:26px auto 0;padding:20px 0 0;border-top:1px solid var(--line);text-align:center}
+.exchange-footer p{font:11px 'Cinzel',serif;letter-spacing:2px;color:#d7c4be}
+.exchange-footer span{font-size:11px;color:#847672}
+@media(max-width:650px){.nav-actions{gap:12px}.nav-link{font-size:8px;letter-spacing:.7px}.exchange{padding:78px 18px}.exchange-grid{grid-template-columns:1fr;gap:16px}.exchange-card{padding:20px}.exchange-art{height:160px}}
