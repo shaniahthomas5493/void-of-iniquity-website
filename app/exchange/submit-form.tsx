@@ -7,12 +7,13 @@ export default function ExchangeSubmitForm() {
   const [busy,setBusy]=useState(false);
   async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault(); setBusy(true); setMessage(""); setError("");
-    const form=new FormData(event.currentTarget);
+    const formElement = event.currentTarget;
+    const form=new FormData(formElement);
     const payload=Object.fromEntries(form.entries()); payload.submission_type=type;
     try {
       const response=await fetch("/api/exchange",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
       const result=await response.json(); if(!response.ok) throw new Error(result.error ?? "Submission failed.");
-      setMessage(result.message); event.currentTarget.reset();
+      setMessage(result.message); formElement.reset();
     } catch(err) { setError(err instanceof Error ? err.message : "Something went wrong."); }
     finally { setBusy(false); }
   }
