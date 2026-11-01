@@ -14,7 +14,7 @@ export default function Home() {
     <main>
       <nav className="nav">
         <a className="brand" href="#" aria-label="The Void of Iniquity home"><span className="brand-mark">V</span><span>THE VOID <i>OF INIQUITY</i></span></a>
-        <a className="nav-link" href="#realm">Explore the Realm <span>↗</span></a>
+        <div className="nav-actions"><a className="nav-link" href="#realm">Explore the Realm <span>↗</span></a><a className="nav-link" href="#infernal-exchange">The Exchange <span>↗</span></a></div>
       </nav>
 
       <section className="hero">
@@ -40,6 +40,34 @@ export default function Home() {
             <span className="feature-arrow">↗</span>
           </article>
         ))}
+      </section>
+
+      <section className="exchange" id="infernal-exchange">
+        <div className="exchange-heading">
+          <p className="eyebrow">MADE BY THE MEMBERS OF THE VOID</p>
+          <h2>THE INFERNAL<br /><em>EXCHANGE</em></h2>
+          <p className="exchange-intro">A place for the creators among us. Discover the books, businesses, art, and creations born from the minds and hands of our own community.</p>
+        </div>
+        <div className="exchange-grid">
+          <article className="exchange-card">
+            <span className="exchange-kicker">FOR THE WORDSMITHS</span>
+            <div className="exchange-art book-art" aria-hidden="true"><span>THE<br />AUTHOR'S<br /><b>CRYPT</b></span></div>
+            <h3>The Author's Crypt</h3>
+            <p>Meet the writers behind the words. Explore book covers, author profiles, genres, release news, and links to discover or purchase their work.</p>
+            <ul><li>Author profiles & biographies</li><li>Book covers & featured releases</li><li>Reading and purchase links</li></ul>
+          </article>
+          <article className="exchange-card">
+            <span className="exchange-kicker">FOR THE MAKERS & MERCHANTS</span>
+            <div className="exchange-art market-art" aria-hidden="true"><span>THE<br /><b>ARTISAN'S</b><br />MARKET</span></div>
+            <h3>The Artisan's Market</h3>
+            <p>Give your small business a place to be seen. Showcase your products, photography, shop links, and the story behind what you create.</p>
+            <ul><li>Business profiles & logos</li><li>Product photo galleries</li><li>Shop and social links</li></ul>
+          </article>
+        </div>
+        <div className="exchange-footer">
+          <p>YOUR CRAFT. YOUR STORY. YOUR PLACE IN THE VOID.</p>
+          <span>Creator submissions will open once member profiles and staff review tools are ready.</span>
+        </div>
       </section>
 
       <CommunityPanel />
