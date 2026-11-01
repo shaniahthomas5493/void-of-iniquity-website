@@ -76,3 +76,26 @@ footer{padding:25px 7vw;border-top:1px solid var(--line);display:flex;justify-co
 .exchange-footer p{font:11px 'Cinzel',serif;letter-spacing:2px;color:#d7c4be}
 .exchange-footer span{font-size:11px;color:#847672}
 @media(max-width:650px){.nav-actions{gap:12px}.nav-link{font-size:8px;letter-spacing:.7px}.exchange{padding:78px 18px}.exchange-grid{grid-template-columns:1fr;gap:16px}.exchange-card{padding:20px}.exchange-art{height:160px}}
+
+
+.admin-page{min-height:100vh;background:var(--black)}
+.admin-hero{min-height:430px;padding:100px 24px 80px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:radial-gradient(ellipse at 50% 65%,rgba(116,19,24,.22),transparent 55%),linear-gradient(180deg,#0b0808,#100909)}
+.admin-hero h1{font-size:clamp(48px,8vw,94px);margin:22px 0}
+.admin-welcome{max-width:620px;color:var(--muted);font-size:13px;line-height:1.9}
+.admin-access{margin-top:22px;padding:9px 15px;border:1px solid rgba(212,58,63,.5);color:#f08b8b;font-size:9px;letter-spacing:2px}
+.admin-content{max-width:1100px;margin:0 auto;padding:80px 28px 105px}
+.admin-section-heading{text-align:center;margin-bottom:42px}
+.admin-section-heading h2{font:500 clamp(32px,5vw,52px) 'Cinzel',serif;margin:16px 0}
+.admin-section-heading h2 em{font-style:normal;color:var(--bright)}
+.admin-section-heading>p:last-child{color:var(--muted);font-size:12px}
+.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.admin-card{min-height:190px;padding:25px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(31,15,16,.95),rgba(12,9,9,.98))}
+.admin-card-number{font:10px 'Cinzel',serif;letter-spacing:1.5px;color:var(--bright)}
+.admin-card h3{font-size:20px;font-weight:500;margin:28px 0 10px}
+.admin-card p{color:var(--muted);font-size:12px;line-height:1.8;margin:0 0 18px}
+.admin-status{color:#bd7774;font-size:8px;letter-spacing:1.4px}
+.admin-status-live{color:#dca09c}
+.admin-security{margin:25px 0 0;padding:18px;border-left:2px solid var(--red);background:rgba(125,20,27,.09);color:#a99a95;font-size:11px;line-height:1.8}
+.admin-security strong{color:#e7c9c6;letter-spacing:1.5px;font-size:9px}
+.admin-security p{margin:8px 0 0}
+@media(max-width:650px){.admin-hero{min-height:390px;padding:75px 20px}.admin-content{padding:65px 20px}.admin-grid{grid-template-columns:1fr}.admin-card{min-height:165px}}
