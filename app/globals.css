@@ -132,3 +132,34 @@ footer{padding:25px 7vw;border-top:1px solid var(--line);display:flex;justify-co
 .showcase-content .approved-card{transition:border-color .2s,transform .2s}
 .showcase-content .approved-card:hover{border-color:rgba(212,58,63,.55);transform:translateY(-2px)}
 @media(max-width:650px){.showcase-hero{padding:75px 20px 55px}.showcase-content{padding:0 18px 70px}}
+
+
+/* Inner Circle member directory */
+.inner-circle-page{min-height:100vh;background:var(--black)}
+.inner-circle-hero{text-align:center;padding:100px 24px 75px;background:radial-gradient(ellipse at 50% 60%,rgba(116,19,24,.22),transparent 58%)}
+.inner-circle-hero h1{font-size:clamp(48px,8vw,88px);margin:20px 0}
+.inner-circle-hero>p:not(.eyebrow){max-width:590px;margin:0 auto;color:var(--muted);font-size:13px;line-height:1.9}
+.inner-circle-content{max-width:1100px;margin:0 auto;padding:20px 28px 100px}
+.inner-circle-note{color:var(--muted);text-align:center;font-size:13px;padding:35px}
+.inner-circle-gate{text-align:center;padding:35px 0 70px}
+.inner-circle-gate h2,.profile-editor h2,.directory-heading h2{font:500 clamp(27px,4vw,42px) 'Cinzel',serif;margin:10px 0 18px}
+.inner-circle-gate h2 em,.profile-editor h2 em,.directory-heading h2 em{font-style:normal;color:var(--bright)}
+.inner-circle-gate p,.profile-editor p,.directory-heading>p:last-child{color:var(--muted);font-size:12px;line-height:1.8}
+.inner-circle-gate .primary-link{display:inline-block;color:#f2ece8;cursor:pointer}
+.profile-editor{display:grid;grid-template-columns:.8fr 1.2fr;gap:45px;padding:28px 0 55px;border-bottom:1px solid var(--line)}
+.profile-fields{display:grid;gap:13px;padding:22px;border:1px solid var(--line);background:#100d0d}
+.profile-fields label{display:grid;gap:8px;color:#e2cfca;font-size:9px;letter-spacing:1.5px}
+.profile-fields input,.profile-fields textarea{width:100%;padding:13px;background:#090707;border:1px solid rgba(190,55,60,.25);color:#f2ece8;font:12px 'DM Sans',sans-serif;resize:vertical}
+.profile-fields .primary-link{margin:0;color:#f2ece8;cursor:pointer}
+.directory-heading{text-align:center;padding:55px 0 25px}
+.member-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.member-card{padding:24px 18px;text-align:center;border:1px solid var(--line);background:linear-gradient(145deg,rgba(31,15,16,.9),rgba(12,9,9,.98))}
+.member-avatar{width:76px;height:76px;margin:0 auto 15px;border:1px solid rgba(190,55,60,.5);border-radius:50%;overflow:hidden;display:grid;place-items:center;background:#1b0c0d;color:#e78c8c;font:26px 'Cinzel',serif}
+.member-avatar img{width:100%;height:100%;object-fit:cover}
+.member-card h3{font:500 17px 'Cinzel',serif;margin:0 0 5px}
+.member-discord{font-size:10px;color:#a88e89;margin:0}
+.member-bio{font-size:11px;line-height:1.8;color:var(--muted);margin:15px 0}
+.member-roles{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:13px}
+.member-roles span{padding:6px 8px;border:1px solid rgba(190,55,60,.35);color:#e7c9c6;font-size:8px;letter-spacing:.5px}
+@media(max-width:700px){.inner-circle-hero{padding:75px 20px 55px}.inner-circle-content{padding:15px 18px 70px}.profile-editor{grid-template-columns:1fr;gap:15px}.member-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:430px){.member-grid{grid-template-columns:1fr}}
