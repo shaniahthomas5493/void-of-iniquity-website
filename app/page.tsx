@@ -17,7 +17,7 @@ export default function Home() {
     <main>
       <nav className="nav">
         <a className="brand" href="#" aria-label="The Void of Iniquity home"><span className="brand-mark">V</span><span>THE VOID <i>OF INIQUITY</i></span></a>
-        <div className="nav-actions"><a className="nav-link" href="#realm">Explore the Realm <span>↗</span></a><a className="nav-link" href="#infernal-exchange">The Exchange <span>↗</span></a></div>
+        <div className="nav-actions"><a className="nav-link" href="#realm">Explore the Realm <span>↗</span></a><a className="nav-link" href="#infernal-exchange">The Exchange <span>↗</span></a><a className="nav-link" href="/inner-circle">Inner Circle <span>↗</span></a></div>
       </nav>
 
       <section className="hero">
