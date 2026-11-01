@@ -65,7 +65,7 @@ export default function Home() {
             <ul><li>Business profiles & logos</li><li>Product photo galleries</li><li>Shop and social links</li></ul>
           </article>
         </div>
-        <div className="exchange-apply"><a className="primary-link" href="/exchange">SUBMIT YOUR WORK <span>→</span></a><p>Discord members can submit a creator profile for review.</p></div>
+        <div className="exchange-apply"><a className="primary-link" href="/exchange/showcase">VIEW THE SHOWCASE <span>→</span></a><a className="primary-link" href="/exchange">SUBMIT YOUR WORK <span>→</span></a><p>Explore approved creators or submit your own work as a Discord member.</p></div>
         <ExchangeListings />
         <div className="exchange-footer">
           <p>YOUR CRAFT. YOUR STORY. YOUR PLACE IN THE VOID.</p>
