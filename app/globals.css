@@ -163,3 +163,8 @@ footer{padding:25px 7vw;border-top:1px solid var(--line);display:flex;justify-co
 .member-roles span{padding:6px 8px;border:1px solid rgba(190,55,60,.35);color:#e7c9c6;font-size:8px;letter-spacing:.5px}
 @media(max-width:700px){.inner-circle-hero{padding:75px 20px 55px}.inner-circle-content{padding:15px 18px 70px}.profile-editor{grid-template-columns:1fr;gap:15px}.member-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:430px){.member-grid{grid-template-columns:1fr}}
+
+.feature-link{color:inherit;text-decoration:none;transition:background .2s ease,border-color .2s ease;cursor:pointer}
+.feature-link:hover,.feature-link:focus-visible{background:rgba(118,20,26,.10);outline:none}
+.feature-link:hover .feature-arrow,.feature-link:focus-visible .feature-arrow{color:var(--bright);transform:translate(3px,-3px)}
+.feature-link .feature-arrow{transition:transform .2s ease,color .2s ease}
