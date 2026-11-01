@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import ExchangeListings from "../listings";
 
 export default function ExchangeShowcasePage() {
