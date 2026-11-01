@@ -1,3 +1,5 @@
+import CommunityPanel from "./community";
+
 const features = [
   { number: "01", title: "The Archives", text: "Announcements, updates, and messages from the depths." },
   { number: "02", title: "The Inner Circle", text: "Member profiles, identity, and Discord-linked roles." },
@@ -39,6 +41,8 @@ export default function Home() {
           </article>
         ))}
       </section>
+
+      <CommunityPanel />
 
       <section className="join">
         <p className="eyebrow">YOUR PLACE AWAITS</p>
