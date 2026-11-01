@@ -1,4 +1,5 @@
 import CommunityPanel from "./community";
+import ExchangeListings from "./exchange/listings";
 
 const features = [
   { number: "01", title: "The Archives", text: "Announcements, updates, and messages from the depths." },
@@ -64,6 +65,8 @@ export default function Home() {
             <ul><li>Business profiles & logos</li><li>Product photo galleries</li><li>Shop and social links</li></ul>
           </article>
         </div>
+        <div className="exchange-apply"><a className="primary-link" href="/exchange">SUBMIT YOUR WORK <span>→</span></a><p>Discord members can submit a creator profile for review.</p></div>
+        <ExchangeListings />
         <div className="exchange-footer">
           <p>YOUR CRAFT. YOUR STORY. YOUR PLACE IN THE VOID.</p>
           <span>Creator submissions will open once member profiles and staff review tools are ready.</span>
