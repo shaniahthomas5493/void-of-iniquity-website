@@ -1,32 +1,33 @@
 # The Void of Iniquity
 
-A dark-fantasy community website starter for The Void of Iniquity.
+A dark-fantasy community website built with Next.js 15, React 19, TypeScript, and Vercel.
 
-## Stack
-- Next.js 15
-- React 19
-- TypeScript
-- Vercel-ready
+## Current features
+- Responsive public landing page
+- Discord OAuth sign-in flow (NextAuth)
+- Server-side Discord guild membership check using the bot
+- Display of selected server roles: Void Reaper, Void Revenants, Ferryman, and Acolytes
 
-## Current state
-This commit creates the responsive public landing page and the initial application structure.
+## Required environment variables
+Add these values in Vercel Project Settings → Environment Variables. Set them for Production, Preview, and Development as appropriate.
 
-## Not implemented yet
-- Discord OAuth sign-in
-- Guild membership verification and role synchronization
-- Member profiles
-- Announcements backend
-- Community discussions
-- Events management
-- Applications and support tickets
-- Role-based private pages
-- Database and file storage
-- Moderation and staff tools
+- `NEXTAUTH_URL`: `https://void-of-iniquity-website.vercel.app`
+- `NEXTAUTH_SECRET`: a long random secret generated privately
+- `DISCORD_CLIENT_ID`: Discord application client ID
+- `DISCORD_CLIENT_SECRET`: Discord OAuth client secret
+- `DISCORD_GUILD_ID`: The Void of Iniquity server ID
+- `DISCORD_BOT_TOKEN`: Discord bot token (secret)
 
-These features require secure server-side integrations and environment configuration. Never commit Discord bot tokens, OAuth client secrets, or database service keys.
+In the Discord Developer Portal, add this exact OAuth2 redirect URI:
+`https://void-of-iniquity-website.vercel.app/api/auth/callback/discord`
+
+The bot must remain in the guild and be able to read guild member information. Keep the Server Members Intent enabled. Never commit real secrets to GitHub.
 
 ## Local development
 ```bash
 npm install
 npm run dev
 ```
+
+## Planned next
+Database-backed member profiles, announcements, discussions, events, applications, support tickets, role-protected pages, and staff moderation tools are not implemented yet.
