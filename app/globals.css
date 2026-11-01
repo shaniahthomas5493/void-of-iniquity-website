@@ -42,3 +42,14 @@ h1 em,h2 em{font-style:normal;color:var(--bright)}
 .join>p:not(.eyebrow){color:var(--muted);font-size:13px}
 footer{padding:25px 7vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#827572;font-size:9px;letter-spacing:2px}
 @media(max-width:650px){.nav{height:70px;padding:0 20px}.brand{font-size:10px;letter-spacing:1px}.nav-link{font-size:9px;letter-spacing:1px}.hero{min-height:620px;height:calc(100svh - 70px)}.hero-bottom{left:20px;right:20px;font-size:7px;letter-spacing:1px}.features{grid-template-columns:1fr;margin-bottom:70px;padding:0 20px}.feature:nth-child(odd){border-right:0}.feature{min-height:115px;padding:25px 8px}.intro{padding-top:85px}footer{padding:22px 20px;font-size:7px;letter-spacing:1px}}
+
+
+.community-panel{text-align:center;padding:88px 24px 96px;border-top:1px solid var(--line);background:linear-gradient(180deg,#0b0808,#100909)}
+.community-panel h2{font:500 clamp(32px,5vw,54px) 'Cinzel',serif;margin:18px 0}
+.community-panel h2 em{font-style:normal;color:var(--bright)}
+.community-note{max-width:570px;margin:0 auto;color:var(--muted);font-size:13px;line-height:1.9}
+.community-button{display:inline-block;color:#f2ece8;font-family:'DM Sans',sans-serif;cursor:pointer}
+.secondary-button{margin-top:25px;padding:13px 22px;background:transparent;border:1px solid var(--line);color:#d5c9c4;font:600 10px 'DM Sans',sans-serif;letter-spacing:2px;cursor:pointer}
+.secondary-button:hover{border-color:var(--bright);color:#fff}
+.role-list{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:25px auto}
+.role-chip{border:1px solid rgba(190,55,60,.4);background:rgba(125,20,27,.15);padding:9px 13px;color:#e7c9c6;font-size:11px;letter-spacing:.6px}
