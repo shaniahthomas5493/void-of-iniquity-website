@@ -41,7 +41,11 @@ export default function Home() {
             <a className="feature feature-link" href="/archives" key={feature.number} aria-label="Enter The Archives">
               <span className="feature-number">{feature.number}</span><div><h3>{feature.title}</h3><p>{feature.text}</p></div><span className="feature-arrow">↗</span>
             </a>
-          ) : feature.title === "The Gathering" ? (\n            <a className="feature feature-link" href="/gathering" key={feature.number} aria-label="Enter The Gathering">\n              <span className="feature-number">{feature.number}</span><div><h3>{feature.title}</h3><p>{feature.text}</p></div><span className="feature-arrow">↗</span>\n            </a>\n          ) : feature.title === "The Inner Circle" ? (
+          ) : feature.title === "The Gathering" ? (
+            <a className="feature feature-link" href="/gathering" key={feature.number} aria-label="Enter The Gathering">
+              <span className="feature-number">{feature.number}</span><div><h3>{feature.title}</h3><p>{feature.text}</p></div><span className="feature-arrow">↗</span>
+            </a>
+          ) : feature.title === "The Inner Circle" ? (
             <a className="feature feature-link" href="/inner-circle" key={feature.number} aria-label="Enter The Inner Circle">
               <span className="feature-number">{feature.number}</span>
               <div><h3>{feature.title}</h3><p>{feature.text}</p></div>
