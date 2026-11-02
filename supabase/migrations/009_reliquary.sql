@@ -10,3 +10,6 @@ create table if not exists public.reliquary_submissions (
 create index if not exists reliquary_status_created_idx on public.reliquary_submissions(status, created_at desc);
 alter table public.reliquary_submissions enable row level security;
 revoke all on public.reliquary_submissions from anon, authenticated;
+insert into storage.buckets (id,name,public,file_size_limit,allowed_mime_types)
+values ('reliquary-images','reliquary-images',true,5242880,array['image/jpeg','image/png','image/webp'])
+on conflict (id) do update set public=true,file_size_limit=5242880,allowed_mime_types=array['image/jpeg','image/png','image/webp'];
