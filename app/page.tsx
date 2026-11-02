@@ -17,7 +17,7 @@ export default function Home() {
     <main>
       <nav className="nav">
         <a className="brand" href="#" aria-label="The Void of Iniquity home"><span className="brand-mark">V</span><span>THE VOID <i>OF INIQUITY</i></span></a>
-        <div className="nav-actions"><a className="nav-link" href="#realm">Explore the Realm <span>↗</span></a><a className="nav-link" href="#infernal-exchange">The Exchange <span>↗</span></a><a className="nav-link" href="/inner-circle">Inner Circle <span>↗</span></a><a className="nav-link" href="/archives">Archives <span>↗</span></a><a className="nav-link" href="/gathering">The Gathering <span>↗</span></a></div>
+        <div className="nav-actions"><a className="nav-link" href="#realm">Explore the Realm <span>↗</span></a><a className="nav-link" href="#infernal-exchange">The Exchange <span>↗</span></a><a className="nav-link" href="/inner-circle">Inner Circle <span>↗</span></a><a className="nav-link" href="/archives">Archives <span>↗</span></a><a className="nav-link" href="/gathering">The Gathering <span>↗</span></a><a className="nav-link" href="/rituals">Rituals & Events <span>↗</span></a></div>
       </nav>
 
       <section className="hero">
@@ -43,6 +43,10 @@ export default function Home() {
             </a>
           ) : feature.title === "The Gathering" ? (
             <a className="feature feature-link" href="/gathering" key={feature.number} aria-label="Enter The Gathering">
+              <span className="feature-number">{feature.number}</span><div><h3>{feature.title}</h3><p>{feature.text}</p></div><span className="feature-arrow">↗</span>
+            </a>
+          ) : feature.title === "Rituals & Events" ? (
+            <a className="feature feature-link" href="/rituals" key={feature.number} aria-label="Explore Rituals and Events">
               <span className="feature-number">{feature.number}</span><div><h3>{feature.title}</h3><p>{feature.text}</p></div><span className="feature-arrow">↗</span>
             </a>
           ) : feature.title === "The Inner Circle" ? (
