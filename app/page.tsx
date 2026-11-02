@@ -19,7 +19,21 @@ export default function Home() {
     <main>
       <nav className="nav">
         <a className="brand" href="#" aria-label="The Void of Iniquity home"><img className="brand-crest" src="/void-crest.svg" alt="" /><span>THE VOID <i>OF INIQUITY</i></span></a>
-        <div className="nav-actions"><a className="nav-link" href="#realm">Explore the Realm <span>↗</span></a><a className="nav-link" href="#infernal-exchange">The Exchange <span>↗</span></a><a className="nav-link" href="/inner-circle">Inner Circle <span>↗</span></a><a className="nav-link" href="/archives">Archives <span>↗</span></a><a className="nav-link" href="/gathering">The Gathering <span>↗</span></a><a className="nav-link" href="/rituals">Rituals & Events <span>↗</span></a><a className="nav-link" href="/gatehouse">The Gatehouse <span>↗</span></a><a className="nav-link" href="/broadcast">The Broadcast <span>↗</span></a></div>
+        <div className="nav-actions">
+          <details className="realm-menu">
+            <summary className="nav-link">Explore the Void <span>⌄</span></summary>
+            <div className="realm-menu-panel">
+              <a href="/archives">The Archives</a>
+              <a href="/inner-circle">The Inner Circle</a>
+              <a href="/gathering">The Gathering</a>
+              <a href="/rituals">Rituals & Events</a>
+              <a href="/gatehouse">The Gatehouse</a>
+              <a href="/chambers">Hidden Chambers</a>
+              <a href="/broadcast">The Broadcast</a>
+              <a href="/reliquary">The Reliquary</a>
+            </div>
+          </details>
+        </div>
       </nav>
 
       <section className="hero">
