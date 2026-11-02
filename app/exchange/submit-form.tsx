@@ -1,6 +1,12 @@
 "use client";
 import { useState } from "react";
 
+async function readResponse(response: Response) {
+  const raw = await response.text();
+  try { return JSON.parse(raw); }
+  catch { throw new Error(response.status === 413 ? "That photo upload is too large. Each photo must be 4 MB or smaller." : "The server returned an unexpected response (" + response.status + "). Please try again."); }
+}
+
 export default function ExchangeSubmitForm() {
   const [type,setType]=useState("author");
   const [message,setMessage]=useState("");
@@ -19,12 +25,14 @@ export default function ExchangeSubmitForm() {
       if (files.length > 5) throw new Error("You selected " + files.length + " photos. Please choose no more than five.");
       let imageUrls: string[] = [];
       if (files.length) {
-        const uploadData = new FormData();
-        files.forEach(file => uploadData.append("images", file));
-        const uploadResponse = await fetch("/api/exchange/upload", { method: "POST", body: uploadData });
-        const uploadResult = await uploadResponse.json();
-        if (!uploadResponse.ok) throw new Error(uploadResult.error ?? "Image upload failed.");
-        imageUrls = uploadResult.urls ?? [];
+        for (const file of files) {
+          const uploadData = new FormData();
+          uploadData.append("images", file);
+          const uploadResponse = await fetch("/api/exchange/upload", { method: "POST", body: uploadData });
+          const uploadResult = await readResponse(uploadResponse);
+          if (!uploadResponse.ok) throw new Error(uploadResult.error ?? "Image upload failed.");
+          imageUrls.push(...(uploadResult.urls ?? []));
+        }
       }
 
       const payload = {
@@ -42,7 +50,7 @@ export default function ExchangeSubmitForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      const result = await response.json();
+      const result = await readResponse(response);
       if (!response.ok) throw new Error(result.error ?? "Submission failed.");
       setMessage(result.message);
       formElement.reset();
@@ -62,7 +70,7 @@ export default function ExchangeSubmitForm() {
     <label>WEBSITE OR SHOP LINK <span>(OPTIONAL)</span><input name="website_url" type="url" placeholder="https://"/></label>
     <label>SOCIAL PROFILE LINK <span>(OPTIONAL)</span><input name="social_url" type="url" placeholder="https://"/></label>
     <label>FEATURE IMAGE URL <span>(OPTIONAL — EXTERNAL IMAGE LINK)</span><input name="featured_image_url" type="url" placeholder="https://"/></label>
-    <label>UPLOAD PHOTOS <span>(UP TO 5 — JPG, PNG OR WEBP — 5 MB EACH)</span>
+    <label>UPLOAD PHOTOS <span>(UP TO 5 — JPG, PNG OR WEBP — 4 MB EACH)</span>
       <input name="images" type="file" accept="image/jpeg,image/png,image/webp" multiple onChange={e=>setSelectedCount(e.target.files?.length ?? 0)}/>
     </label>
     <p className="form-note">{selectedCount} of 5 upload slots selected. Uploaded photos will appear in your listing after it is approved. Submissions are reviewed by the Void Reaper before appearing publicly.</p>
