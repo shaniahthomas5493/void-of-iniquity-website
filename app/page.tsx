@@ -10,7 +10,8 @@ const features = [
   { number: "04", title: "Rituals & Events", text: "Discover events, activities, and what comes next." },
   { number: "05", title: "The Gatehouse", text: "Applications, requests, and support tickets." },
   { number: "06", title: "Hidden Chambers", text: "Private spaces revealed according to your rank." },
-  { number: "07", title: "The Broadcast", text: "Discover streamers and creators from within the Void." }
+  { number: "07", title: "The Broadcast", text: "Discover streamers and creators from within the Void." },
+  { number: "08", title: "The Reliquary", text: "A collection of memories, creations, and treasures left behind by the members of the Void." }
 ];
 
 export default function Home() {
@@ -38,7 +39,9 @@ export default function Home() {
 
       <section className="features" aria-label="Community features">
         {features.map((feature) => (
-          feature.title === "The Broadcast" ? (
+          feature.title === "The Reliquary" ? (
+            <a className="feature feature-link" href="/reliquary" key={feature.number} aria-label="Enter The Reliquary"><span className="feature-number">{feature.number}</span><div><h3>{feature.title}</h3><p>{feature.text}</p></div><span className="feature-arrow">↗</span></a>
+          ) : feature.title === "The Broadcast" ? (
             <a className="feature feature-link" href="/broadcast" key={feature.number} aria-label="Enter The Broadcast">
               <span className="feature-number">{feature.number}</span><div><h3>{feature.title}</h3><p>{feature.text}</p></div><span className="feature-arrow">↗</span>
             </a>
