@@ -7,7 +7,7 @@ import { getSupabaseAdmin } from "../../../../lib/supabase";
 export const runtime = "nodejs";
 
 const MAX_FILES = 5;
-const MAX_BYTES = 5 * 1024 * 1024;
+const MAX_BYTES = 4 * 1024 * 1024;
 const allowedTypes: Record<string, string> = {
   "image/jpeg": "jpg",
   "image/png": "png",
@@ -28,7 +28,7 @@ export async function POST(request: Request) {
   if (!files.length) return NextResponse.json({ urls: [] });
   if (files.length > MAX_FILES) return NextResponse.json({ error: "Choose no more than five images." }, { status: 400 });
   if (files.some(file => !allowedTypes[file.type] || file.size > MAX_BYTES)) {
-    return NextResponse.json({ error: "Images must be JPG, PNG, or WebP and no larger than 5 MB each." }, { status: 400 });
+    return NextResponse.json({ error: "Images must be JPG, PNG, or WebP and no larger than 4 MB each." }, { status: 400 });
   }
 
   const supabase = getSupabaseAdmin();
