@@ -296,3 +296,13 @@ footer{padding:25px 7vw;border-top:1px solid var(--line);display:flex;justify-co
 .chamber-seal{width:90px;height:90px;margin:35px 0;border:1px solid rgba(190,55,60,.45);display:grid;place-items:center;color:var(--bright);font-size:34px;transform:rotate(45deg)}
 .chamber-room .primary-link{color:#f2ece8}
 @media(max-width:650px){.chambers-content{padding:25px 20px 75px}.chambers-hero{padding:80px 20px 55px}.chambers-grid{grid-template-columns:1fr}.chamber-card{min-height:190px}.chamber-room{min-height:570px;padding:80px 20px}}
+
+
+/* Seller-uploaded photo galleries */
+.exchange-form input[type="file"]{padding:10px;color:#b9aaa5;font-size:11px}
+.exchange-form input[type="file"]::file-selector-button{margin-right:12px;padding:9px 12px;border:1px solid var(--line);background:#1a0c0d;color:#e8d8d2;font:600 9px 'DM Sans',sans-serif;letter-spacing:1px;cursor:pointer}
+.approved-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:-2px 0 18px}
+.approved-gallery a{display:block;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--line);background:#090707}
+.approved-gallery a:first-child:nth-last-child(1){grid-column:1/-1;aspect-ratio:16/9}
+.approved-gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}
+.approved-gallery a:hover img{transform:scale(1.04)}
