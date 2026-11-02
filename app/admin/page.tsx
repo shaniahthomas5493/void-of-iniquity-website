@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "../api/auth/auth-options";
 import ExchangeReview from "./exchange-review";
+import ArchivesEditor from "./archives-editor";
 const VOID_REAPER_ROLE="1495636529488461834";
 export default async function AdminDashboard(){
  const session=await getServerSession(authOptions);
@@ -13,8 +14,8 @@ export default async function AdminDashboard(){
  <div className="admin-grid">
  <article className="admin-card"><span className="admin-card-number">01 / COMMUNITY</span><h3>Member Management</h3><p>Plan and oversee member access, role assignments, and community standing.</p><span className="admin-status">MANAGEMENT TOOLS NOT CONNECTED</span></article>
  <article className="admin-card"><span className="admin-card-number">02 / THE EXCHANGE</span><h3>Creator Submissions</h3><p>Review author and artisan applications before their profiles appear in the Infernal Exchange.</p><span className="admin-status admin-status-live">REVIEW WORKFLOW CONNECTED</span></article>
- <article className="admin-card"><span className="admin-card-number">03 / THE ARCHIVES</span><h3>Website Content</h3><p>Prepare announcements, event updates, and featured community content.</p><span className="admin-status">CONTENT EDITOR NOT CONNECTED</span></article>
+ <article className="admin-card"><span className="admin-card-number">03 / THE ARCHIVES</span><h3>Website Content</h3><p>Prepare announcements, event updates, and featured community content.</p><a className="admin-status admin-status-live" href="#archives-editor">CONTENT EDITOR CONNECTED ↗</a></article>
  <article className="admin-card"><span className="admin-card-number">04 / SECURITY</span><h3>Access & Permissions</h3><p>This dashboard is restricted to verified server members holding the Void Reaper role.</p><span className="admin-status admin-status-live">SERVER ROLE CHECK ACTIVE</span></article></div>
- <div className="admin-security"><strong>SECURITY NOTE</strong><p>Dashboard access and review actions are checked on the server using your verified Discord session and role.</p></div><ExchangeReview/></section>
+ <div className="admin-security"><strong>SECURITY NOTE</strong><p>Dashboard access and review actions are checked on the server using your verified Discord session and role.</p></div><div id="archives-editor"><ArchivesEditor/></div><ExchangeReview/></section>
  <footer><span>THE VOID OF INIQUITY</span><span>ASHES FADE. THE VOID REMAINS.</span></footer></main>;
 }
