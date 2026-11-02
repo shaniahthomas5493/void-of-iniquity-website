@@ -19,6 +19,7 @@ create table if not exists public.ritual_suggestions (
  title text not null check (char_length(title) between 3 and 120),
  details text not null check (char_length(details) between 3 and 4000),
  preferred_date date,
+ preferred_time time,
  status text not null default 'pending' check (status in ('pending','considered','scheduled','declined')),
  created_at timestamptz not null default now()
 );
@@ -39,3 +40,5 @@ alter table public.ritual_rsvps enable row level security;
 revoke all on public.ritual_events from anon, authenticated;
 revoke all on public.ritual_suggestions from anon, authenticated;
 revoke all on public.ritual_rsvps from anon, authenticated;
+
+alter table public.ritual_suggestions add column if not exists preferred_time time;
