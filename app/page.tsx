@@ -17,7 +17,7 @@ export default function Home() {
     <main>
       <nav className="nav">
         <a className="brand" href="#" aria-label="The Void of Iniquity home"><span className="brand-mark">V</span><span>THE VOID <i>OF INIQUITY</i></span></a>
-        <div className="nav-actions"><a className="nav-link" href="#realm">Explore the Realm <span>↗</span></a><a className="nav-link" href="#infernal-exchange">The Exchange <span>↗</span></a><a className="nav-link" href="/inner-circle">Inner Circle <span>↗</span></a><a className="nav-link" href="/archives">Archives <span>↗</span></a></div>
+        <div className="nav-actions"><a className="nav-link" href="#realm">Explore the Realm <span>↗</span></a><a className="nav-link" href="#infernal-exchange">The Exchange <span>↗</span></a><a className="nav-link" href="/inner-circle">Inner Circle <span>↗</span></a><a className="nav-link" href="/archives">Archives <span>↗</span></a><a className="nav-link" href="/gathering">The Gathering <span>↗</span></a></div>
       </nav>
 
       <section className="hero">
@@ -41,7 +41,7 @@ export default function Home() {
             <a className="feature feature-link" href="/archives" key={feature.number} aria-label="Enter The Archives">
               <span className="feature-number">{feature.number}</span><div><h3>{feature.title}</h3><p>{feature.text}</p></div><span className="feature-arrow">↗</span>
             </a>
-          ) : feature.title === "The Inner Circle" ? (
+          ) : feature.title === "The Gathering" ? (\n            <a className="feature feature-link" href="/gathering" key={feature.number} aria-label="Enter The Gathering">\n              <span className="feature-number">{feature.number}</span><div><h3>{feature.title}</h3><p>{feature.text}</p></div><span className="feature-arrow">↗</span>\n            </a>\n          ) : feature.title === "The Inner Circle" ? (
             <a className="feature feature-link" href="/inner-circle" key={feature.number} aria-label="Enter The Inner Circle">
               <span className="feature-number">{feature.number}</span>
               <div><h3>{feature.title}</h3><p>{feature.text}</p></div>
