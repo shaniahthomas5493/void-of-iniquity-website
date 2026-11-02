@@ -1,0 +1,3 @@
+import Gatehouse from "./gatehouse";
+export const dynamic="force-dynamic";
+export default function GatehousePage(){return <main className="gatehouse-page"><nav className="nav"><a className="brand" href="/"><span className="brand-mark">V</span><span>THE VOID <i>OF INIQUITY</i></span></a><div className="nav-actions"><a className="nav-link" href="/">RETURN TO THE REALM <span>↗</span></a></div></nav><section className="gatehouse-hero"><p className="eyebrow">THE THRESHOLD BETWEEN NEED & ANSWER</p><h1>THE <em>GATEHOUSE</em></h1><p>Applications, requests, and support tickets.</p></section><Gatehouse/><footer><span>THE VOID OF INIQUITY</span><span>ASHES FADE. THE VOID REMAINS.</span></footer></main>}
