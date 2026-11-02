@@ -37,6 +37,10 @@ export default function MemberManagement() {
 
   const filtered = useMemo(() => members.filter((m) => (m.display_name || m.management?.display_name || m.discord_name).toLowerCase().includes(search.toLowerCase()) || m.discord_name.toLowerCase().includes(search.toLowerCase())), [members, search]);
   const selected = members.find((m) => m.user_id === selectedId) || null;
+  const flaggedMembers = members.filter((m) => {
+    const record = m.management;
+    return Boolean(record && (record.warnings > 0 || record.standing === "watch" || record.standing === "probation"));
+  }).sort((a, b) => (b.management!.warnings - a.management!.warnings) || a.discord_name.localeCompare(b.discord_name));
   useEffect(() => {
     if (!selected) { setForm(empty); return; }
     setForm({ ...empty, ...(selected.management || {}), display_name: selected.management?.display_name || selected.display_name || "" });
@@ -75,6 +79,19 @@ export default function MemberManagement() {
         <label className="mm-notes">PRIVATE STAFF NOTES<textarea rows={6} maxLength={5000} value={form.staff_notes} onChange={(e) => setForm({ ...form, staff_notes: e.target.value })} placeholder="Visible only to Void Reapers..." /></label>
         <button className="mm-save" onClick={save} disabled={saving}>{saving ? "SAVING..." : "SAVE MEMBER RECORD"}</button>
       </> : <p>Select a member to view their record.</p>}</div>
+
     </div>
+    <section className="mm-flagged">
+      <div className="mm-flagged-heading"><p className="eyebrow">STAFF FOLLOW-UP</p><h2>MEMBERS REQUIRING <em>ATTENTION</em></h2><p>Members with one or more recorded warnings, a watch status, or probation.</p></div>
+      {flaggedMembers.length ? <div className="mm-flagged-list">{flaggedMembers.map((member) => {
+        const record = member.management!;
+        return <button type="button" key={member.user_id} className="mm-flagged-member" onClick={() => { setSelectedId(member.user_id); setMessage(""); }}>
+          <span className="mm-flagged-name"><strong>{record.display_name || member.display_name || member.discord_name}</strong><small>{member.discord_name} · {record.rank_label}</small></span>
+          <span className="mm-flagged-status">{record.warnings > 0 ? String(record.warnings) + (record.warnings === 1 ? " warning" : " warnings") : "No warnings"}</span>
+          <span className="mm-flagged-status">{record.standing}</span>
+          <span className="mm-flagged-status">{record.access_status}</span>
+        </button>;
+      })}</div> : <p className="mm-clear">No members currently meet these follow-up criteria.</p>}
+    </section>
   </section>;
 }
