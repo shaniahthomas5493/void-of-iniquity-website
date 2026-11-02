@@ -12,7 +12,7 @@ export async function GET(){
   const db=getSupabaseAdmin();
   const [{data:events,error:eventsError},{data:suggestions,error:suggestionsError}]=await Promise.all([
    db.from("ritual_events").select("id,title,category,description,starts_at,ends_at,location,discord_url,status,created_at").in("status",["published","cancelled"]).order("starts_at",{ascending:true}),
-   reaper?db.from("ritual_suggestions").select("id,title,details,preferred_date,status,discord_name,created_at").eq("status","pending").order("created_at",{ascending:false}).limit(30):Promise.resolve({data:[],error:null})
+   reaper?db.from("ritual_suggestions").select("id,title,details,preferred_date,preferred_time,status,discord_name,created_at").eq("status","pending").order("created_at",{ascending:false}).limit(30):Promise.resolve({data:[],error:null})
   ]);
   if(eventsError)throw eventsError;if(suggestionsError)throw suggestionsError;
   const {data:rsvps,error:rsvpError}=await db.from("ritual_rsvps").select("event_id,user_id,discord_name");
@@ -26,9 +26,9 @@ export async function POST(request:Request){
  const action=body.action;
  if(action==="suggest"){
   if(!member)return NextResponse.json({error:"Sign in with a verified Discord account to suggest an event."},{status:403});
-  const title=typeof body.title==="string"?body.title.trim():"";const details=typeof body.details==="string"?body.details.trim():"";const preferred_date=typeof body.preferred_date==="string"&&body.preferred_date?body.preferred_date:null;
+  const title=typeof body.title==="string"?body.title.trim():"";const details=typeof body.details==="string"?body.details.trim():"";const preferred_date=typeof body.preferred_date==="string"&&body.preferred_date?body.preferred_date:null;const preferred_time=typeof body.preferred_time==="string"&&body.preferred_time?body.preferred_time:null;
   if(title.length<3||title.length>120||details.length<3||details.length>4000)return NextResponse.json({error:"Check the suggestion title and details."},{status:400});
-  try{const {error}=await getSupabaseAdmin().from("ritual_suggestions").insert({user_id:session!.user!.id,discord_name:session!.user!.name??"Void Member",title,details,preferred_date});if(error)throw error;return NextResponse.json({message:"Your event suggestion has been sent to the Reapers."});}
+  try{const {error}=await getSupabaseAdmin().from("ritual_suggestions").insert({user_id:session!.user!.id,discord_name:session!.user!.name??"Void Member",title,details,preferred_date,preferred_time});if(error)throw error;return NextResponse.json({message:"Your event suggestion has been sent to the Reapers."});}
   catch(e){console.error(e);return NextResponse.json({error:"Your suggestion could not be saved."},{status:500});}
  }
  if(action==="create"){
