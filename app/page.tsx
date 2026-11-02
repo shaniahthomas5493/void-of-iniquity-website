@@ -37,7 +37,7 @@ export default function Home() {
 
       <section className="features" aria-label="Community features">
         {features.map((feature) => (
-          feature.title === "The Archives" ? (
+          feature.title === "Hidden Chambers" ? (\n            <a className="feature feature-link" href="/chambers" key={feature.number} aria-label="Enter Hidden Chambers">\n              <span className="feature-number">{feature.number}</span><div><h3>{feature.title}</h3><p>{feature.text}</p></div><span className="feature-arrow">↗</span>\n            </a>\n          ) : feature.title === "The Archives" ? (
             <a className="feature feature-link" href="/archives" key={feature.number} aria-label="Enter The Archives">
               <span className="feature-number">{feature.number}</span><div><h3>{feature.title}</h3><p>{feature.text}</p></div><span className="feature-arrow">↗</span>
             </a>
