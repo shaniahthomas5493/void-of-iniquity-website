@@ -7,11 +7,12 @@ export const dynamic="force-dynamic";
 const REAPER="1495636529488461834";
 async function access(){const session=await getServerSession(authOptions);const member=Boolean(session?.user?.guildMember&&session.user.id);return {session,member,reaper:Boolean(member&&session?.user?.discordRoles?.includes(REAPER))};}
 export async function GET(){
+ const {reaper}=await access();
  try{
   const db=getSupabaseAdmin();
   const [{data:events,error:eventsError},{data:suggestions,error:suggestionsError}]=await Promise.all([
    db.from("ritual_events").select("id,title,category,description,starts_at,ends_at,location,discord_url,status,created_at").in("status",["published","cancelled"]).order("starts_at",{ascending:true}),
-   db.from("ritual_suggestions").select("id,title,details,preferred_date,status,discord_name,created_at").eq("status","pending").order("created_at",{ascending:false}).limit(30)
+   reaper?db.from("ritual_suggestions").select("id,title,details,preferred_date,status,discord_name,created_at").eq("status","pending").order("created_at",{ascending:false}).limit(30):Promise.resolve({data:[],error:null})
   ]);
   if(eventsError)throw eventsError;if(suggestionsError)throw suggestionsError;
   const {data:rsvps,error:rsvpError}=await db.from("ritual_rsvps").select("event_id,user_id,discord_name");
