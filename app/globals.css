@@ -392,3 +392,7 @@ footer{align-items:center;gap:18px}.footer-brand{display:flex;align-items:center
 .realm-menu-panel a:hover{background:rgba(125,20,27,.24);color:#fff}
 .realm-menu[open] summary span{display:inline-block;transform:rotate(180deg)}
 @media(max-width:650px){.nav{gap:12px}.nav-actions{gap:0}.realm-menu-panel{right:0;width:min(245px,calc(100vw - 40px))}.realm-menu summary{font-size:8px;letter-spacing:1px;white-space:nowrap}}
+
+
+/* Global Discord invitation bar */
+.join-discord-bar{min-height:38px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,#17090a,#351014,#17090a);border-bottom:1px solid rgba(212,58,63,.42);text-align:center}.join-discord-bar a{display:inline-flex;align-items:center;gap:12px;padding:9px 18px;color:#f0d9d6;font-size:9px;font-weight:700;letter-spacing:2px}.join-discord-bar a span{color:#ff7778;transition:transform .2s}.join-discord-bar a:hover span{transform:translateX(4px)}
