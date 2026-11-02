@@ -269,3 +269,30 @@ footer{padding:25px 7vw;border-top:1px solid var(--line);display:flex;justify-co
 .gatehouse-form label{display:grid;gap:8px;color:#e2cfca;font-size:9px;letter-spacing:1.5px}.gatehouse-form input,.gatehouse-form textarea{width:100%;padding:13px;background:#090707;border:1px solid rgba(190,55,60,.25);color:#f2ece8;font:12px 'DM Sans',sans-serif}.gatehouse-form textarea{resize:vertical;line-height:1.7}.gatehouse-form .primary-link{color:#f2ece8;cursor:pointer}.gatehouse-private-note{font-size:10px;color:#c77a77}
 .gatehouse-list{display:grid;gap:16px}.gatehouse-ticket{padding:23px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(31,15,16,.8),rgba(12,9,9,.98))}.gatehouse-ticket-meta{display:flex;gap:14px;align-items:center;flex-wrap:wrap;color:#c77a77;font-size:9px;letter-spacing:1px}.gatehouse-ticket-meta time{margin-left:auto;color:var(--muted)}.gatehouse-status{padding:5px 8px;border:1px solid var(--line)}.gatehouse-ticket h3{font:500 22px 'Cinzel',serif;margin:16px 0 5px}.gatehouse-author{font-size:10px;color:var(--muted)}.gatehouse-details{font-size:12px;line-height:1.8;color:#c9bdb8;white-space:pre-wrap}.gatehouse-staff-note{padding:13px;border-left:2px solid var(--red);background:#100b0b;color:#d5b9b4;font-size:11px;line-height:1.7}.gatehouse-staff-note strong{font-size:9px;color:#d88787;letter-spacing:1px}.gatehouse-ticket-actions{display:flex;gap:10px;margin-top:16px}.gatehouse-ticket-actions select{padding:10px;background:#090707;color:#eee;border:1px solid var(--line)}.gatehouse-ticket-actions .secondary-button{margin:0}
 @media(max-width:650px){.gatehouse-content{padding:20px 18px 70px}.gatehouse-hero{padding:70px 18px 55px}.gatehouse-form{padding:20px}.gatehouse-types{grid-template-columns:1fr}.gatehouse-ticket-meta time{margin-left:0;width:100%}}
+
+
+/* Hidden Chambers */
+.chambers-page{min-height:100vh;background:var(--black)}
+.chambers-hero{text-align:center;padding:105px 24px 75px;background:radial-gradient(ellipse at 50% 60%,rgba(116,19,24,.22),transparent 58%)}
+.chambers-hero h1{font-size:clamp(45px,8vw,92px);margin:22px 0}
+.chambers-hero>p:last-child{max-width:590px;margin:0 auto;color:var(--muted);font-size:13px;line-height:1.9}
+.chambers-content{max-width:1050px;margin:0 auto;padding:35px 28px 110px}
+.chambers-gate{text-align:center;padding:45px 22px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(31,15,16,.75),rgba(12,9,9,.98))}
+.chambers-gate h2,.chambers-intro h2{font:500 clamp(28px,4vw,42px) 'Cinzel',serif;margin:10px 0}
+.chambers-gate h2 em{font-style:normal;color:var(--bright)}
+.chambers-gate p,.chambers-intro>p:last-child{max-width:560px;margin:0 auto;color:var(--muted);font-size:12px;line-height:1.8}
+.chambers-gate .primary-link{display:inline-block;color:#f2ece8}
+.chambers-intro{text-align:center;margin:15px 0 35px}
+.chambers-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.chamber-card{display:block;min-height:210px;padding:27px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(31,15,16,.85),rgba(12,9,9,.98));transition:.2s}
+.chamber-card:hover{border-color:var(--bright);transform:translateY(-3px);background:linear-gradient(145deg,rgba(75,19,23,.45),rgba(12,9,9,.98))}
+.chamber-number{font-size:9px;letter-spacing:2px;color:#c77a77}
+.chamber-card h3{font-size:21px;font-weight:500;margin:24px 0 10px}
+.chamber-card p{color:var(--muted);font-size:12px;line-height:1.8;min-height:42px}
+.chamber-enter{display:inline-block;margin-top:14px;color:#e88b8b;font-size:9px;letter-spacing:1.8px}
+.chamber-room{min-height:650px;padding:110px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:radial-gradient(ellipse at 50% 60%,rgba(116,19,24,.22),transparent 58%)}
+.chamber-room h1{font-size:clamp(42px,8vw,90px);max-width:900px}
+.chamber-room>p:not(.eyebrow){max-width:590px;color:var(--muted);font-size:14px;line-height:2}
+.chamber-seal{width:90px;height:90px;margin:35px 0;border:1px solid rgba(190,55,60,.45);display:grid;place-items:center;color:var(--bright);font-size:34px;transform:rotate(45deg)}
+.chamber-room .primary-link{color:#f2ece8}
+@media(max-width:650px){.chambers-content{padding:25px 20px 75px}.chambers-hero{padding:80px 20px 55px}.chambers-grid{grid-template-columns:1fr}.chamber-card{min-height:190px}.chamber-room{min-height:570px;padding:80px 20px}}
