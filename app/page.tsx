@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <main>
       <nav className="nav">
-        <a className="brand" href="#" aria-label="The Void of Iniquity home"><span className="brand-mark">V</span><span>THE VOID <i>OF INIQUITY</i></span></a>
+        <a className="brand" href="#" aria-label="The Void of Iniquity home"><img className="brand-crest" src="/void-crest.svg" alt="" /><span>THE VOID <i>OF INIQUITY</i></span></a>
         <div className="nav-actions"><a className="nav-link" href="#realm">Explore the Realm <span>↗</span></a><a className="nav-link" href="#infernal-exchange">The Exchange <span>↗</span></a><a className="nav-link" href="/inner-circle">Inner Circle <span>↗</span></a><a className="nav-link" href="/archives">Archives <span>↗</span></a><a className="nav-link" href="/gathering">The Gathering <span>↗</span></a><a className="nav-link" href="/rituals">Rituals & Events <span>↗</span></a><a className="nav-link" href="/gatehouse">The Gatehouse <span>↗</span></a></div>
       </nav>
 
@@ -112,7 +112,7 @@ export default function Home() {
         <a className="primary-link" href="https://discord.com" target="_blank" rel="noreferrer">JOIN THE COMMUNITY <span>→</span></a>
       </section>
 
-      <footer><span>THE VOID OF INIQUITY</span><span>ASHES FADE. THE VOID REMAINS.</span></footer>
+      <footer><span className="footer-brand"><img src="/void-crest.svg" alt="" /> THE VOID OF INIQUITY</span><span>ASHES FADE. THE VOID REMAINS.</span></footer>
     </main>
   );
 }
