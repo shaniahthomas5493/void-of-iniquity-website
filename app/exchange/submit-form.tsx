@@ -16,6 +16,7 @@ export default function ExchangeSubmitForm() {
     const files = form.getAll("images").filter((value): value is File => value instanceof File && value.size > 0);
 
     try {
+      if (files.length > 5) throw new Error("You selected " + files.length + " photos. Please choose no more than five.");
       let imageUrls: string[] = [];
       if (files.length) {
         const uploadData = new FormData();
@@ -62,7 +63,7 @@ export default function ExchangeSubmitForm() {
     <label>SOCIAL PROFILE LINK <span>(OPTIONAL)</span><input name="social_url" type="url" placeholder="https://"/></label>
     <label>FEATURE IMAGE URL <span>(OPTIONAL — EXTERNAL IMAGE LINK)</span><input name="featured_image_url" type="url" placeholder="https://"/></label>
     <label>UPLOAD PHOTOS <span>(UP TO 5 — JPG, PNG OR WEBP — 5 MB EACH)</span>
-      <input name="images" type="file" accept="image/jpeg,image/png,image/webp" multiple onChange={e=>setSelectedCount(Math.min(e.target.files?.length ?? 0,5))}/>
+      <input name="images" type="file" accept="image/jpeg,image/png,image/webp" multiple onChange={e=>setSelectedCount(e.target.files?.length ?? 0)}/>
     </label>
     <p className="form-note">{selectedCount} of 5 upload slots selected. Uploaded photos will appear in your listing after it is approved. Submissions are reviewed by the Void Reaper before appearing publicly.</p>
     {message&&<p className="form-success" role="status">{message}</p>}{error&&<p className="form-error" role="alert">{error}</p>}
