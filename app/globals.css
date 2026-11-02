@@ -322,3 +322,35 @@ footer{padding:25px 7vw;border-top:1px solid var(--line);display:flex;justify-co
 .exchange-card,.admin-card,.review-card,.approved-card{box-shadow:inset 0 1px rgba(255,120,120,.025),0 12px 38px rgba(0,0,0,.12)}
 footer{align-items:center;gap:18px}.footer-brand{display:flex;align-items:center;gap:9px}.footer-brand img{width:26px;height:26px;object-fit:contain;opacity:.8}
 @media(max-width:650px){.brand-crest{width:38px;height:38px}.hero:before{background-size:92vw auto,auto}.footer-brand img{width:22px;height:22px}}
+
+
+/* The Broadcast — gothic creator directory */
+.broadcast-page{min-height:100vh;background:radial-gradient(ellipse at 50% 0%,rgba(120,18,26,.17),transparent 42%),#080707}
+.broadcast-hero{text-align:center;padding:100px 24px 80px;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 50% 50%,rgba(138,20,29,.18),transparent 58%)}
+.broadcast-hero h1{font-size:clamp(44px,8vw,88px);margin:20px 0}.broadcast-hero h1 em,.broadcast-intro h2 em,.broadcast-form h2 em,.broadcast-directory-heading h2 em,.broadcast-gate h2 em{font-style:normal;color:var(--bright)}
+.broadcast-hero>p:not(.eyebrow){color:var(--muted);font-size:14px}.broadcast-rule{display:inline-block;margin-top:28px;color:#b65a5e;font:11px 'Cinzel',serif;letter-spacing:3px}
+.broadcast-content{max-width:1120px;margin:0 auto;padding:70px 28px 110px}
+.broadcast-intro,.broadcast-directory-heading{text-align:center;max-width:680px;margin:0 auto 45px}
+.broadcast-intro h2,.broadcast-directory-heading h2{font:500 clamp(30px,5vw,48px) 'Cinzel',serif;margin:14px 0}
+.broadcast-intro>p:last-child,.broadcast-directory-heading>p:last-child,.broadcast-muted{color:var(--muted);font-size:13px;line-height:1.8}
+.broadcast-form{display:grid;grid-template-columns:1fr 1.2fr;gap:35px;padding:32px;border:1px solid var(--line);background:linear-gradient(135deg,rgba(93,15,21,.18),rgba(14,10,10,.9));margin:0 auto 85px}
+.broadcast-form h2,.broadcast-gate h2{font:500 30px 'Cinzel',serif;margin:12px 0}
+.broadcast-fields{display:grid;gap:15px}.broadcast-fields label{display:grid;gap:7px;color:#cdbfba;font-size:9px;letter-spacing:1.5px}
+.broadcast-fields input:not([type=checkbox]),.broadcast-fields textarea{width:100%;padding:12px 13px;background:#090707;border:1px solid var(--line);color:#f2ece8;font:13px 'DM Sans',sans-serif;outline:none}
+.broadcast-fields input:focus,.broadcast-fields textarea:focus{border-color:var(--bright)}
+.broadcast-live{display:flex!important;align-items:center;gap:10px}.broadcast-live input{accent-color:#b52830}
+.broadcast-fields .primary-link{justify-self:start;margin-top:5px;color:#f2ece8;cursor:pointer}
+.platform{color:#d27a78}.broadcast-gate{text-align:center;padding:35px;border:1px solid var(--line);margin:0 auto 80px;max-width:680px;background:rgba(100,15,22,.1)}
+.broadcast-gate p{color:var(--muted);font-size:13px}.broadcast-directory-heading{margin-bottom:35px}
+.broadcast-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.broadcast-card{position:relative;padding:25px;border:1px solid var(--line);background:linear-gradient(145deg,#120c0d,#0b0808);min-height:220px}
+.broadcast-card:before{content:"";position:absolute;top:0;left:25px;right:25px;height:1px;background:linear-gradient(90deg,transparent,var(--bright),transparent);opacity:.6}
+.broadcast-card-top{display:flex;justify-content:space-between;align-items:center}.broadcast-sigil{color:#b33138;font-size:21px}
+.broadcast-live-badge{font-size:9px;letter-spacing:1.5px;color:#ff7777}.broadcast-live-badge i{display:inline-block;width:6px;height:6px;border-radius:50%;background:#e33b42;margin-right:6px;box-shadow:0 0 8px #e33b42}
+.broadcast-card h3{font:500 20px 'Cinzel',serif;margin:18px 0 4px}.broadcast-discord{font-size:10px;color:#927e79;margin:0}
+.broadcast-bio{font-size:12px;color:var(--muted);line-height:1.7;margin:14px 0}
+.broadcast-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.broadcast-links a{padding:8px 10px;border:1px solid rgba(190,55,60,.28);font-size:9px;letter-spacing:1px;color:#e6d6d1}.broadcast-links a:hover{border-color:var(--bright);background:rgba(130,20,28,.18)}
+.broadcast-remove{margin-top:16px;background:none;border:0;color:#b65a5e;font-size:9px;letter-spacing:1px;cursor:pointer}
+.broadcast-empty{text-align:center;color:var(--muted);padding:45px 15px;border:1px dashed var(--line);font-size:13px}
+@media(max-width:760px){.broadcast-form{grid-template-columns:1fr;padding:22px}.broadcast-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.broadcast-grid{grid-template-columns:1fr}.broadcast-content{padding:55px 18px 80px}.broadcast-hero{padding:75px 20px 60px}}

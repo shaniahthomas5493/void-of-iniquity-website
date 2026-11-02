@@ -1,0 +1,17 @@
+import {getServerSession} from "next-auth";
+import {NextResponse} from "next/server";
+import {authOptions} from "../auth/auth-options";
+import {getSupabaseAdmin} from "../../../lib/supabase";
+export const runtime="nodejs";
+const REAPER="1495636529488461834";
+const clean=(v:unknown,max:number)=>typeof v==="string"?v.trim().slice(0,max):"";
+const valid=(v:string,hosts:string[])=>{if(!v)return true;try{const u=new URL(v);return (u.protocol==="https:"||u.protocol==="http:")&&hosts.some(h=>u.hostname===h||u.hostname.endsWith("."+h));}catch{return false;}};
+async function refresh(){const {data,error}=await getSupabaseAdmin().from("streamer_profiles").select("*").order("is_live",{ascending:false}).order("display_name");if(error)throw error;return data??[];}
+export async function GET(){try{return NextResponse.json({profiles:await refresh()});}catch{return NextResponse.json({error:"The Broadcast is unavailable."},{status:500});}}
+export async function POST(request:Request){const s=await getServerSession(authOptions);if(!s?.user?.id||!s.user.guildMember)return NextResponse.json({error:"Verified Void membership is required."},{status:403});let b:Record<string,unknown>;try{b=await request.json();}catch{return NextResponse.json({error:"Invalid profile data."},{status:400});}
+const display_name=clean(b.display_name,50),bio=clean(b.bio,280),twitch_url=clean(b.twitch_url,500),tiktok_url=clean(b.tiktok_url,500),youtube_url=clean(b.youtube_url,500);
+if(display_name.length<2)return NextResponse.json({error:"Creator name must be at least 2 characters."},{status:400});
+if(!valid(twitch_url,["twitch.tv"])||!valid(tiktok_url,["tiktok.com"])||!valid(youtube_url,["youtube.com","youtu.be"]))return NextResponse.json({error:"Use the matching Twitch, TikTok, or YouTube link for each field."},{status:400});
+if(![twitch_url,tiktok_url,youtube_url].some(Boolean))return NextResponse.json({error:"Add at least one platform link."},{status:400});
+try{const {error}=await getSupabaseAdmin().from("streamer_profiles").upsert({user_id:s.user.id,discord_name:s.user.name??"Void Member",display_name,bio,twitch_url:twitch_url||null,tiktok_url:tiktok_url||null,youtube_url:youtube_url||null,is_live:b.is_live===true,updated_at:new Date().toISOString()},{onConflict:"user_id"});if(error)throw error;return NextResponse.json({message:"Profile saved.",profiles:await refresh()});}catch(e){console.error("Broadcast profile save failed:",e);return NextResponse.json({error:"Your creator profile could not be saved."},{status:500});}}
+export async function DELETE(request:Request){const s=await getServerSession(authOptions);if(!s?.user?.guildMember||!s.user.discordRoles?.includes(REAPER))return NextResponse.json({error:"Void Reaper access is required."},{status:403});let b:Record<string,unknown>;try{b=await request.json();}catch{return NextResponse.json({error:"Invalid request."},{status:400});}const id=clean(b.user_id,100);if(!id)return NextResponse.json({error:"A creator profile is required."},{status:400});try{const {error}=await getSupabaseAdmin().from("streamer_profiles").delete().eq("user_id",id);if(error)throw error;return NextResponse.json({profiles:await refresh()});}catch(e){console.error("Broadcast moderation failed:",e);return NextResponse.json({error:"The profile could not be removed."},{status:500});}}

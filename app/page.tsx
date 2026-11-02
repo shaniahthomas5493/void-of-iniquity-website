@@ -9,7 +9,8 @@ const features = [
   { number: "03", title: "The Gathering", text: "Community discussions and conversations." },
   { number: "04", title: "Rituals & Events", text: "Discover events, activities, and what comes next." },
   { number: "05", title: "The Gatehouse", text: "Applications, requests, and support tickets." },
-  { number: "06", title: "Hidden Chambers", text: "Private spaces revealed according to your rank." }
+  { number: "06", title: "Hidden Chambers", text: "Private spaces revealed according to your rank." },
+  { number: "07", title: "The Broadcast", text: "Discover streamers and creators from within the Void." }
 ];
 
 export default function Home() {
@@ -17,7 +18,7 @@ export default function Home() {
     <main>
       <nav className="nav">
         <a className="brand" href="#" aria-label="The Void of Iniquity home"><img className="brand-crest" src="/void-crest.svg" alt="" /><span>THE VOID <i>OF INIQUITY</i></span></a>
-        <div className="nav-actions"><a className="nav-link" href="#realm">Explore the Realm <span>↗</span></a><a className="nav-link" href="#infernal-exchange">The Exchange <span>↗</span></a><a className="nav-link" href="/inner-circle">Inner Circle <span>↗</span></a><a className="nav-link" href="/archives">Archives <span>↗</span></a><a className="nav-link" href="/gathering">The Gathering <span>↗</span></a><a className="nav-link" href="/rituals">Rituals & Events <span>↗</span></a><a className="nav-link" href="/gatehouse">The Gatehouse <span>↗</span></a></div>
+        <div className="nav-actions"><a className="nav-link" href="#realm">Explore the Realm <span>↗</span></a><a className="nav-link" href="#infernal-exchange">The Exchange <span>↗</span></a><a className="nav-link" href="/inner-circle">Inner Circle <span>↗</span></a><a className="nav-link" href="/archives">Archives <span>↗</span></a><a className="nav-link" href="/gathering">The Gathering <span>↗</span></a><a className="nav-link" href="/rituals">Rituals & Events <span>↗</span></a><a className="nav-link" href="/gatehouse">The Gatehouse <span>↗</span></a><a className="nav-link" href="/broadcast">The Broadcast <span>↗</span></a></div>
       </nav>
 
       <section className="hero">
@@ -37,7 +38,11 @@ export default function Home() {
 
       <section className="features" aria-label="Community features">
         {features.map((feature) => (
-          feature.title === "Hidden Chambers" ? (
+          feature.title === "The Broadcast" ? (
+            <a className="feature feature-link" href="/broadcast" key={feature.number} aria-label="Enter The Broadcast">
+              <span className="feature-number">{feature.number}</span><div><h3>{feature.title}</h3><p>{feature.text}</p></div><span className="feature-arrow">↗</span>
+            </a>
+          ) : feature.title === "Hidden Chambers" ? (
             <a className="feature feature-link" href="/chambers" key={feature.number} aria-label="Enter Hidden Chambers">
               <span className="feature-number">{feature.number}</span><div><h3>{feature.title}</h3><p>{feature.text}</p></div><span className="feature-arrow">↗</span>
             </a>

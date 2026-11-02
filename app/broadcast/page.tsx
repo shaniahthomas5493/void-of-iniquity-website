@@ -1,0 +1,7 @@
+import {getServerSession} from "next-auth";
+import {authOptions} from "../api/auth/auth-options";
+import {getSupabaseAdmin} from "../../lib/supabase";
+import Broadcast from "./broadcast";
+export const dynamic="force-dynamic";
+export default async function BroadcastPage(){const session=await getServerSession(authOptions);let profiles:any[]=[];try{const {data}=await getSupabaseAdmin().from("streamer_profiles").select("*").order("is_live",{ascending:false}).order("display_name");profiles=data??[];}catch(error){console.error("Broadcast profiles unavailable:",error);}
+return <main className="broadcast-page"><nav className="nav"><a className="brand" href="/"><img className="brand-crest" src="/void-crest.svg" alt=""/><span>THE VOID <i>OF INIQUITY</i></span></a><a className="nav-link" href="/">RETURN TO THE REALM <span>↗</span></a></nav><section className="broadcast-hero"><p className="eyebrow">THE VOICES BEYOND THE VEIL</p><h1>THE <em>BROADCAST</em></h1><p>Where the voices of the Void reach beyond its walls.</p><span className="broadcast-rule">✦ &nbsp; STREAM. CREATE. BE HEARD. &nbsp; ✦</span></section><Broadcast initialProfiles={profiles} member={Boolean(session?.user?.guildMember)} currentUserId={session?.user?.id??""} isReaper={Boolean(session?.user?.discordRoles?.includes("1495636529488461834"))}/><footer><span className="footer-brand"><img src="/void-crest.svg" alt=""/> THE VOID OF INIQUITY</span><span>ASHES FADE. THE VOID REMAINS.</span></footer></main>;}
