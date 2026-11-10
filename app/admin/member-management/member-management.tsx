@@ -7,7 +7,7 @@ type Member = {
   display_name: string | null; last_seen_at: string | null;
   management: null | { display_name: string; rank_label: string; access_status: string; standing: string; warnings: number; commendations: number; staff_notes: string };
 };
-const ranks = ["Unassigned", "Acolyte", "Ferryman", "Void Revenant", "Void Reaper"];
+const ranks = ["Unassigned", "Void Reaper"];
 const accesses = ["active", "restricted", "suspended", "departed"];
 const standings = ["good", "watch", "warning", "probation"];
 const empty = { display_name: "", rank_label: "Unassigned", access_status: "active", standing: "good", warnings: 0, commendations: 0, staff_notes: "" };
