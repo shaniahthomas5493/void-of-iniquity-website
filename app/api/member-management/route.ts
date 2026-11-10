@@ -23,7 +23,7 @@ export async function GET() {
     if (profileError) throw profileError;
     if (recordError) throw recordError;
     const byId = new Map((records ?? []).map((record) => [record.user_id, record]));
-    return NextResponse.json({ members: (profiles ?? []).map((profile) => ({ ...profile, management: byId.get(profile.user_id) ?? null })) });
+    return NextResponse.json({ members: (profiles ?? []).map((profile) => { const management = byId.get(profile.user_id) ?? null; return { ...profile, management: management ? { ...management, rank_label: management.rank_label === "Void Reaper" ? "Void Reaper" : "Unassigned" } : null }; }) });
   } catch (error) {
     console.error("Member management load failed:", error);
     return NextResponse.json({ error: "Member records are temporarily unavailable." }, { status: 500 });
@@ -46,7 +46,7 @@ export async function PATCH(request: Request) {
   const warnings = Number(body.warnings);
   const commendations = Number(body.commendations);
   const notes = typeof body.staff_notes === "string" ? body.staff_notes.trim() : "";
-  if (!userId || !discordName || !["Unassigned", "Acolyte", "Ferryman", "Void Revenant", "Void Reaper"].includes(String(rank)) ||
+  if (!userId || !discordName || !["Unassigned", "Void Reaper"].includes(String(rank)) ||
       !["active", "restricted", "suspended", "departed"].includes(String(access)) ||
       !["good", "watch", "warning", "probation"].includes(String(standing)) ||
       !Number.isInteger(warnings) || warnings < 0 || warnings > 999 ||
