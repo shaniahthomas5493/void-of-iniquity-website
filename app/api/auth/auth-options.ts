@@ -2,12 +2,7 @@ import type { NextAuthOptions } from "next-auth";
 import DiscordProvider from "next-auth/providers/discord";
 import { getSupabaseAdmin } from "../../../lib/supabase";
 
-const recognizedRoleIds = [
-  "1495636529488461834",
-  "1495636936075903027",
-  "1524785126163091526",
-  "1515430083601502369"
-];
+const recognizedRoleIds = ["1495636529488461834"];
 
 export const authOptions: NextAuthOptions = {
   providers: [
